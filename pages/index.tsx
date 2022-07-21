@@ -9,13 +9,15 @@ import { useState } from "react";
 
 const Home: NextPage = () => {
   const [nextPage, setNextPage] = useState(1);
+  //Obtain the general list graphql
   const { data } = useQuery(GET_CHARACTERS, {
     variables: { nextPage },
   });
+  //Validation so that the list does not exceed the limit pages
   const nexPageCount = (num: number) => {
     if (nextPage <= 1 && num === -1) {
       return;
-    } else if (nextPage == 42) {
+    } else if (nextPage == data?.characters?.info?.pages) {
       return;
     } else {
       setNextPage(nextPage + num);

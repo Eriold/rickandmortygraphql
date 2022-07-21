@@ -5,7 +5,9 @@ import { ListNicknames } from "../../components/atoms";
 import { useState } from "react";
 
 const ListNames: NextPage = () => {
+  //Initial state like Ascendente
   const [orderList, setOrderList] = useState("ASC");
+  //change initial state as ASC (Ascendente) or DES (Descendente)
   const changeOrderList = () => {
     if (orderList === "ASC") {
       setOrderList("DES");
@@ -21,7 +23,9 @@ const ListNames: NextPage = () => {
           order={orderList}
         />
       </Grid.Container>
-        <button onClick={changeOrderList} style={{marginBottom: '30px'}}>{orderList}</button>
+      <button onClick={changeOrderList} style={{ marginBottom: "30px" }}>
+        {orderList}
+      </button>
     </Layout>
   );
 };

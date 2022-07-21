@@ -8,17 +8,18 @@ import { addId } from "../../../redux/slices/characterSlice";
 interface CardCharacterProps {
   character: CharacterList;
 }
-
+//Molecule component that recibe a object and drawf object
 const CardCharacter: FC<CardCharacterProps> = ({ character }) => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const onClick = () => {
+//Remove onClick and use onPress of card selected, for recomendation nextui
+  const cardSelected = () => {
     dispatch(addId(character.id))
     router.push(`/characters/${character.id}`);
   };
   return (
     <Grid xs={6} sm={3} xl={1.5}>
-      <Card isHoverable isPressable onClick={onClick}>
+      <Card isHoverable isPressable onPress={cardSelected}>
         <Card.Body css={{ p: 1 }}>
           <Card.Image src={character.image} width="100%" height={140} />
           <Card.Footer>

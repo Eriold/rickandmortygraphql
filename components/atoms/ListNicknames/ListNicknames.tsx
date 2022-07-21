@@ -4,7 +4,7 @@ interface ListNicknamesProps {
   names: string[];
   order: string;
 }
-
+//Component that show a list with orders
 const ListNicknames: FC<ListNicknamesProps> = ({ names, order }) => {
   names = names.map((name) => name.trim());
   return (

@@ -3,6 +3,7 @@ import Image from "next/image";
 import NextLink from "next/link";
 import { MortyFace } from "../../../assets/svg";
 
+//Molecule navbar component when have a all navigation
 const Navbar = () => {
   const { theme } = useTheme();
   return (

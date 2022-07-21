@@ -10,9 +10,11 @@ import { CharacterList } from "../../interfaces/character-list";
 
 const FavoritesPage = () => {
   const [favoriteCharacters, setFavoriteCharacters] = useState<number[]>([]);
+  //Obtain list in localstorage at favorites characters
   useEffect(() => {
     setFavoriteCharacters(localFavorites.characters());
   }, []);
+  //Obtain response graphql of localStorage items
   const { data } = useQuery(GET_CHARACTER_ID_CARD, {
     variables: { characterId: favoriteCharacters },
   });

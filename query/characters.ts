@@ -1,5 +1,7 @@
 import { gql } from "@apollo/client";
 
+//List of querys obtains with graphql
+
 export const GET_CHARACTERS = gql`
   query getList($nextPage: Int) {
     characters(page: $nextPage) {

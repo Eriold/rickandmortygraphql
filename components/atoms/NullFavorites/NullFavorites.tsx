@@ -1,4 +1,6 @@
 import { Container, Text } from "@nextui-org/react";
+
+//Default message when no have favorites 
 const NullFavorites = () => {
   return (
     <Container
