@@ -22,9 +22,11 @@ const FavoritesPage = () => {
         {favoriteCharacters.length === 0 ? (
           <NullFavorites />
         ) : (
-          data?.charactersByIds?.map((character: CharacterList) => (
-            <CardCharacter character={character} />
-          ))
+          data?.charactersByIds?.map(
+            (character: CharacterList, index: number) => (
+              <CardCharacter character={character} key={index} />
+            )
+          )
         )}
       </Grid.Container>
     </Layout>
