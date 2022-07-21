@@ -1,27 +1,33 @@
 import { useState } from "react";
 import { NextPage } from "next";
-import { Button, Card, Container, Grid, Text, Image } from "@nextui-org/react";
+import { Button, Card, Grid, Text } from "@nextui-org/react";
 import { CharacterList } from "../../interfaces/charater-detail";
 import { localFavorites } from "../../utils";
 import { Layout } from "../../layouts";
 import { useQuery } from "@apollo/client";
 import { GET_CHARACTERS_BY_ID } from "../../query/characters";
+import { useSelector } from "react-redux";
+import { CharacterID } from "../../interfaces/characterId-redux";
 
 const Characters: NextPage = () => {
-  const [characterId] = useState(
-    typeof window === "undefined" ? "" : window.location.pathname.split("/")[2]
+  //Obtain id of redux
+  const characterId = useSelector(
+    (state: CharacterID) => state.characterId.value
   );
+  //Obtain response of graphql
   const { data } = useQuery<CharacterList>(GET_CHARACTERS_BY_ID, {
     variables: { characterId: characterId },
   });
   const [isInFavorites, setIsInFavorites] = useState(
     localFavorites.existInFavorites(parseInt(characterId))
   );
+  //Destructure data of graphql
   const character = data?.character;
   const onToggleFavorite = () => {
     localFavorites.toggleFavorite(parseInt(characterId));
     setIsInFavorites(!isInFavorites);
   };
+  //Validate color status of character alive
   const statusCharacter = (status = "any") => {
     if (status === "Alive") {
       return { color: "success", estado: "Vivo" };

@@ -2,14 +2,18 @@ import { FC } from "react";
 import { Card, Grid, Row, Text } from "@nextui-org/react";
 import { CharacterList } from "../../../interfaces/character-list";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { addId } from "../../../redux/slices/characterSlice";
 
 interface CardCharacterProps {
   character: CharacterList;
 }
 
 const CardCharacter: FC<CardCharacterProps> = ({ character }) => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const onClick = () => {
+    dispatch(addId(character.id))
     router.push(`/characters/${character.id}`);
   };
   return (
