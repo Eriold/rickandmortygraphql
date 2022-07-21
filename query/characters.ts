@@ -32,3 +32,13 @@ export const GET_CHARACTERS_BY_ID = gql`
     }
   }
 `;
+
+export const GET_CHARACTER_ID_CARD = gql`
+  query getCharacterIdCard($characterId: [ID!]!) {
+    charactersByIds(ids: $characterId) {
+      id
+      name
+      image
+    }
+  }
+`;
