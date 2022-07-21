@@ -21,7 +21,6 @@ const Home: NextPage = () => {
       setNextPage(nextPage + num);
     }
   };
-  console.log(nextPage);
   return (
     <Layout title="Listado de Pókemons">
       <Grid.Container gap={2} justify="flex-start">
