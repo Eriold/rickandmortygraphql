@@ -19,7 +19,7 @@ const FavoritesPage = () => {
     variables: { characterId: favoriteCharacters },
   });
   return (
-    <Layout title="Pokémones favoritos">
+    <Layout title="Personajes favoritos de Rick and Morty">
       <Grid.Container gap={2} justify="flex-start">
         {favoriteCharacters.length === 0 ? (
           <NullFavorites />

@@ -24,7 +24,7 @@ const Home: NextPage = () => {
     }
   };
   return (
-    <Layout title="Listado de Pókemons">
+    <Layout title="Listado de personajes Rick and Morty">
       <Grid.Container gap={2} justify="flex-start">
         {data?.characters?.results?.map((character: CharacterList) => (
           <CardCharacter character={character} key={character.id} />
