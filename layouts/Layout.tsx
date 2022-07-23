@@ -9,8 +9,6 @@ type LayoutProps = {
   title?: string;
 };
 
-// const origin = typeof window === "undefined" ? "" : window.location.origin;
-
 export const Layout: FC<LayoutProps> = ({ children, title }) => {
   return (
     <div>
@@ -27,7 +25,6 @@ export const Layout: FC<LayoutProps> = ({ children, title }) => {
           property="og:description"
           content={`Esta es la página sobre ${title}`}
         />
-        {/* <meta property="og:image" content={`${origin}/img/banner.png`} /> */}
       </Head>
 
       <Navbar />
